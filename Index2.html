@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>💘 Valentin(e) 💘</title>
+
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+h2 {
+    color: #ff4e50;
+}
+
+button {
+    background: #ff4e50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background: #e63e40;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.heart {
+    font-size: 40px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="step1">
+    <h2>Es-tu disponible le 14 février ? 💌</h2>
+    <button onclick="nextStep('step1','step2')">Oui</button>
+    <button onclick="nextStep('step1','step2')">Non</button>
+</div>
+
+<div class="card hidden" id="step2">
+    <h2>Veux-tu être ma Valentin(e) ? 💖</h2>
+    <button onclick="nextStep('step2','step3')">Oui je le veux</button>
+    <button onclick="nextStep('step2','step3')">Non je ne suis pas intéressé(e)</button>
+</div>
+
+<div class="card hidden" id="step3">
+    <div class="heart">❤️</div>
+    <h2>Merci d’avoir accepté d’être ma Valentin(e) 💘</h2>
+</div>
+
+<script>
+function nextStep(current, next) {
+    document.getElementById(current).classList.add("hidden");
+    document.getElementById(next).classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
